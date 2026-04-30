@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Variables */
+:root {
+  --navy: #0A192F;
+  --navy-light: #112240;
+  --navy-lighter: #233554;
+  --white: #F8F9FA;
+  --white-pure: #FFFFFF;
+  --accent: #64FFDA;
+  --text-main: #0A192F;
+  --text-muted: #495670;
+  --border: #E2E8F0;
+  --shadow-sm: 0 4px 6px -1px rgba(10, 25, 47, 0.1), 0 2px 4px -1px rgba(10, 25, 47, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(10, 25, 47, 0.1), 0 4px 6px -2px rgba(10, 25, 47, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(10, 25, 47, 0.1), 0 10px 10px -5px rgba(10, 25, 47, 0.04);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  background: var(--white);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-subtle {
+  0% { box-shadow: 0 0 0 0 rgba(10, 25, 47, 0.2); }
+  70% { box-shadow: 0 0 0 10px rgba(10, 25, 47, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(10, 25, 47, 0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Center app */
+#root {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: var(--navy);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border);
+  margin: 40px 0;
+}
+
+/* Common Card / Box */
+.card-container {
+  background: var(--white-pure);
+  padding: 30px;
+  border-radius: 16px;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.card-container:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Inputs & Textareas */
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px 14px 14px 45px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  outline: none;
+  background: var(--white);
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(10, 25, 47, 0.1);
+  background: var(--white-pure);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Readonly Input for Email */
+.email-display-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.email-display-input {
+  background: var(--navy) !important;
+  color: var(--white-pure) !important;
+  font-weight: 600;
+  font-family: monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding: 16px !important;
+  border-color: var(--navy) !important;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+button {
+  background: var(--navy);
+  color: var(--white-pure);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+button:hover {
+  background: var(--navy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 15px rgba(10, 25, 47, 0.2);
+}
+
+.btn-icon {
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* Inbox Mail Card */
+.mail-item {
+  background: var(--white-pure);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 5px solid var(--navy);
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.mail-item:hover {
+  transform: translateX(5px) translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--navy-light);
+}
+
+.mail-sender {
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.mail-subject {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--navy-light);
+}
+
+.mail-body {
+  color: var(--text-muted);
+  background: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background: var(--white);
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+}
+
+.empty-icon {
+  color: var(--navy-light);
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Copy Animation */
+.btn-success {
+  background: #10B981 !important;
+  color: white !important;
+}
+
+/* Header animation */
+.header-icon {
+  color: var(--navy);
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+}
